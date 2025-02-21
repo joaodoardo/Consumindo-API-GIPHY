@@ -1,11 +1,10 @@
-const API_KEY = 'vngEQJdJxowE1okcgSoVCOJ5Z1oiaBgX';
-const BUSCA = 'black metal'
+const API_KEY = 'i6M1NEe3ZFD1kw0761wOdD2EFUtPffTq';
 const QUANTIDADE = 10;
-const API_URLRandom = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
-const API_URLBusca = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${BUSCA}&limit=${QUANTIDADE}`;
 
 function randomGIFs() {
 
+    const randomsearch = document.getElementById('randomsearch');
+    const API_URLRandom = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${randomsearch.value}`;
     const container = document.getElementById('gifContainer');
     container.innerHTML = '';
 
@@ -27,6 +26,9 @@ function randomGIFs() {
 }
 
 function buscarGIFs() {
+
+    const search = document.getElementById('search')
+    const API_URLBusca = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search.value}&limit=${QUANTIDADE}`;
     
     fetch(API_URLBusca)
         .then(response => response.json())
