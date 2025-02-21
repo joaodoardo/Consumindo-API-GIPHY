@@ -4,15 +4,42 @@
 
 body{ 
     font-family: monospace;
-    text-align: center; 
     background-color: rgb(38, 31, 44);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.gif-container, .gif-container2{ 
+header{
+    background-color: rgb(43, 43, 43);
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+h2{
+    margin-top: 1rem;
+}
+
+input{
+    width: 20vw;
+}
+
+.gif-container, #favoritosContainer{ 
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
+    align-items: center;
+    text-align: center;
 }
 
 .gif{ 
@@ -21,4 +48,19 @@ body{
 
 button{ 
     margin-top: 5px; 
+}
+
+.favbtn{
+    background-color: green;
+    border: 0;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+}
+.rmvfavbtn{
+    background-color: red;
+    border: 0;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
 }

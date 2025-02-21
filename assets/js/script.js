@@ -3,8 +3,8 @@ const QUANTIDADE = 10;
 
 function randomGIFs() {
 
-    const randomsearch = document.getElementById('randomsearch');
-    const API_URLRandom = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${randomsearch.value}`;
+    const search = document.getElementById('search')
+    const API_URLRandom = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${search.value}`;
     const container = document.getElementById('gifContainer');
     container.innerHTML = '';
 
@@ -17,7 +17,7 @@ function randomGIFs() {
             div.className = 'gif';
             div.innerHTML = `
                 <img src="${gif.images.fixed_height.url}" alt="GIF">
-                <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')">Favoritar</button>
+                <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"></button>
             `;
             container.appendChild(div);
           
@@ -33,7 +33,7 @@ function buscarGIFs() {
     fetch(API_URLBusca)
         .then(response => response.json())
         .then(data => {
-            const container = document.getElementById('gifContainer2');
+            const container = document.getElementById('gifContainer');
             container.innerHTML = '';
         
             data.data.forEach(gif => { 
@@ -41,7 +41,7 @@ function buscarGIFs() {
                 div.className = 'gif';
                 div.innerHTML = `
                     <img src="${gif.images.fixed_height.url}" alt="GIF">
-                    <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')">Favoritar</button>
+                    <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"></button>
                 `;
                 container.appendChild(div); 
             });
@@ -74,7 +74,7 @@ function exibirFavoritos() {
         div.className = 'gif';
         div.innerHTML = `
             <img src="${gif.url}" alt="GIF Favorito">
-            <button onclick="removerFavorito('${gif.id}')">Remover</button>
+            <button onclick="removerFavorito('${gif.id}')" class="rmvfavbtn"></button>
         `;
         container.appendChild(div);
     });
