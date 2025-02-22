@@ -4,7 +4,7 @@
 
 body{ 
     font-family: monospace;
-    background-color: rgb(38, 31, 44);
+    background-color: darkslategray;
     color: white;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ header{
 }
 
 h1{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 h2{
@@ -63,4 +63,11 @@ button{
     border-radius: 50%;
     height: 1rem;
     width: 1rem;
+}
+
+button{
+   background-color: darkslategrey;
+   color: white;
+   border: 0;
+   border-radius: 1rem;
 }

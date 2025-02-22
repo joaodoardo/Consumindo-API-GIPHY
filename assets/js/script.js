@@ -80,4 +80,88 @@ function exibirFavoritos() {
     });
 }
 
+
+
+
+
+
+
+
+
+
+
+// Função para upload de GIF
+function uploadGIF() {
+    const fileInput = document.getElementById('gifUpload');
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert('Selecione um arquivo GIF para fazer o upload.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('api_key', API_KEY);
+
+    fetch('https://upload.giphy.com/v1/gifs', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.meta.status === 200) {
+            console.log('Upload realizado com sucesso! ID do GIF: ' + data.data.id)
+        } else {
+            console.log('Erro ao enviar o GIF.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Falha ao enviar o GIF.');
+    });
+}
+
+
+
+//exemplo de id: FAy18i3zF84FwlkyxH
+
+
+
+
+function buscarGIFPorID() {
+    const gifId = document.getElementById('gifIdInput').value;
+    if (!gifId) {
+        alert('Digite um ID de GIF para buscar.');
+        return;
+    }
+
+    const API_URL = `https://api.giphy.com/v1/gifs/${gifId}?api_key=${API_KEY}`;
+
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.data) {
+                alert('GIF não encontrado.');
+                return;
+            }
+            const gif = data.data;
+            const container = document.getElementById('gifContainer');
+            container.innerHTML = `
+                <div class="gif">
+                    <img src="${gif.images.fixed_height.url}" alt="GIF">
+                </div>
+            `;
+        })
+        .catch(error => {
+            console.error('Erro ao buscar GIF:', error);
+            alert('Falha ao buscar o GIF.');
+        });
+}
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', exibirFavoritos);
