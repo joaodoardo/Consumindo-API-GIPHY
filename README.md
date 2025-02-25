@@ -42,8 +42,9 @@ Este projeto é uma aplicação web que consome a API pública do [Giphy](https:
 
 ## 📚 Fontes de Referência
 - 🎥 [O que é uma API - GIPHY (Canal: Quebrando Paradigmas)](https://www.youtube.com/watch?v=yD7RuM4-tg8)
+- 🎥 [How to Use the Giphy API (Canal: Steve Griffith - Prof3ssorSt3v3)](https://www.youtube.com/watch?v=HRh6zHRwRLo)
 - 📖 [Documentação da API Giphy](https://developers.giphy.com/)
-- 📄 [MDN Web Docs - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- 🏫 [W3Schools - JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp)
 - 🏫 [W3Schools - LocalStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp)
 
 ## ⚖️ Licença
