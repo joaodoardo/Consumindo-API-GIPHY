@@ -37,6 +37,7 @@ Este projeto é uma aplicação web que consome a API pública do [Giphy](https:
 │   ├── js/
 │   │   ├── script.js
 ├── index.html
+├── LICENSE
 ├── README.md
 ```
 
