@@ -51,23 +51,37 @@ button{
 }
 
 .favbtn{
-    background-color: green;
     border: 0;
     border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.favbtn img{
+    width: 1.5rem;
+}
+
 .rmvfavbtn{
-    background-color: red;
     border: 0;
     border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rmvfavbtn img{
+    width: 1.5rem;
 }
 
 button{
    background-color: darkslategrey;
    color: white;
    border: 0;
-   border-radius: 1rem;
 }

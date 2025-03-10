@@ -17,7 +17,7 @@ function randomGIFs() {
             div.className = 'gif';
             div.innerHTML = `
                 <img src="${gif.images.fixed_height.url}" alt="GIF">
-                <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"></button>
+                <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"><img src="assets/img/heart.png"></button>
             `;
             container.appendChild(div);
           
@@ -41,7 +41,7 @@ function buscarGIFs() {
                 div.className = 'gif';
                 div.innerHTML = `
                     <img src="${gif.images.fixed_height.url}" alt="GIF">
-                    <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"></button>
+                    <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"><img src="assets/img/heart.png"></button>
                 `;
                 container.appendChild(div); 
             });
@@ -74,23 +74,12 @@ function exibirFavoritos() {
         div.className = 'gif';
         div.innerHTML = `
             <img src="${gif.url}" alt="GIF Favorito">
-            <button onclick="removerFavorito('${gif.id}')" class="rmvfavbtn"></button>
+            <button onclick="removerFavorito('${gif.id}')" class="rmvfavbtn"><img src="assets/img/heart2.png"></button>
         `;
         container.appendChild(div);
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-// Função para upload de GIF
 function uploadGIF() {
     const fileInput = document.getElementById('gifUpload');
     const file = fileInput.files[0];
@@ -111,10 +100,8 @@ function uploadGIF() {
     .then(response => response.json())
     .then(data => {
         if (data.meta.status === 200) {
-            console.log('Upload realizado com sucesso! ID do GIF: ' + data.data.id)
-        } else {
-            console.log('Erro ao enviar o GIF.');
-        }
+            alert('Upload realizado com sucesso! ID do GIF: ' + data.data.id);
+        } 
     })
     .catch(error => {
         console.error('Erro:', error);
@@ -122,13 +109,7 @@ function uploadGIF() {
     });
 }
 
-
-
 //exemplo de id: FAy18i3zF84FwlkyxH
-
-
-
-
 function buscarGIFPorID() {
     const gifId = document.getElementById('gifIdInput').value;
     if (!gifId) {
@@ -147,21 +128,19 @@ function buscarGIFPorID() {
             }
             const gif = data.data;
             const container = document.getElementById('gifContainer');
-            container.innerHTML = `
-                <div class="gif">
-                    <img src="${gif.images.fixed_height.url}" alt="GIF">
-                </div>
+            container.innerHTML = '';
+            const div = document.createElement('div');
+            div.className = 'gif';
+            div.innerHTML = `
+                <img src="${gif.images.fixed_height.url}" alt="GIF">
+                <button onclick="favoritarGIF('${gif.id}', '${gif.images.fixed_height.url}')" class="favbtn"><img src="assets/img/heart.png"></button>
             `;
+            container.appendChild(div); 
         })
         .catch(error => {
             console.error('Erro ao buscar GIF:', error);
             alert('Falha ao buscar o GIF.');
         });
 }
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', exibirFavoritos);
